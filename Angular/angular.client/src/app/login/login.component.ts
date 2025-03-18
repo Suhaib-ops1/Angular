@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MyserviceService } from '../myservice.service';
 
 @Component({
   selector: 'app-login',
@@ -7,5 +9,22 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  constructor(private service: MyserviceService, private _route: Router) { }
+
+  ngOnit() { }
+
+  users: any
+  getData(enterUser: any) {
+    this.service.getAllUsers().subscribe((data: any) => {
+      this.users = data.find((p: any) => p.Email == enterUser.Email && p.password == enterUser.password);
+      if (this.users) {
+        alert("login successfully")
+        this._route.navigate(["/Categories"])
+      } else {
+        alert("Invalide email or password ")
+
+      }
+    })
+  }
 
 }

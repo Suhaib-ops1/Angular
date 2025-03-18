@@ -4,13 +4,30 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { GetCategoriesComponent } from './Admin/get-categories/get-categories.component';
+import { GetProductsComponent } from './Admin/get-products/get-products.component';
+import { AddcatgoriyComponent } from './Admin/addCatgory/addcatgoriy.component';
+import { AddProductComponent } from './Admin/add-product/add-product.component';
 
 const routes: Routes = [
   { path: "Login", component: LoginComponent },
   { path: "Signup", component: SignupComponent },
   { path: "Categories", component: CategoriesComponent },
-  {path: "products" , component: ProductsComponent}
+  { path: "products/:id", component: ProductsComponent },
+  { path: "PID/:id", component: ProductdetailsComponent },
 
+  {
+    path: 'dashboard', component: DashboardComponent, children: [
+      { path: 'getCategories', component: GetCategoriesComponent },
+      { path: 'getProdacts', component: GetProductsComponent },
+      { path: 'addCategory', component: AddcatgoriyComponent },
+      { path: 'addProduct', component: AddProductComponent },
+      
+      { path: '', redirectTo: '/dashboard/getCategories', pathMatch: 'full' } // Default route
+    ]
+  },
 ];
 
 @NgModule({

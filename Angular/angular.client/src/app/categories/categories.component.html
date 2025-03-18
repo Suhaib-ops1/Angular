@@ -1,8 +1,8 @@
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card" style="width: 18rem;" *ngFor="let item of CatgeoryData">
+  
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a routerLink="/products" class="btn btn-primary">Show</a>
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">{{item.id}}</p>
+    <a routerLink="/products/{{item.id}}" class="btn btn-primary">Show</a>
   </div>
 </div>
