@@ -37,4 +37,17 @@ export class MyserviceService {
 
 
   }
+  editProducts(id: number, data: any): Observable<any> {
+    return this._url.put(`https://67cd64b6dd7651e464ee3d63.mockapi.io/products/${id}`,data)
+}
+  getCategoryById(id: number) {
+    return this._url.get<any>(`https://67cd64b6dd7651e464ee3d63.mockapi.io/categories/${id}`);
+}
+  editCategory(id: number, data: any): Observable<any> {
+    return this._url.put(`https://67cd64b6dd7651e464ee3d63.mockapi.io/categories/${id}`, data);
+  }
+
+  editUser(id: number, data: any): Observable<any> {
+    return this._url.put(`https://67cea6ee125cd5af757b6514.mockapi.io/Users/${id}`, data)
+ }
 }

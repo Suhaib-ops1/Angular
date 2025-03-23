@@ -15,7 +15,7 @@ export class GetCategoriesComponent {
     this.getData();
   }
 
-  data: any[] = []
+  data: any
   getData() {
     this.service.getCategories().subscribe(d => {
       this.data = d

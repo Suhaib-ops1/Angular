@@ -10,6 +10,9 @@ import { GetCategoriesComponent } from './Admin/get-categories/get-categories.co
 import { GetProductsComponent } from './Admin/get-products/get-products.component';
 import { AddcatgoriyComponent } from './Admin/addCatgory/addcatgoriy.component';
 import { AddProductComponent } from './Admin/add-product/add-product.component';
+import { EditcategoryComponent } from './Admin/editcategory/editcategory.component';
+import { EditproductComponent } from './Admin/editproduct/editproduct.component';
+import { ProfileComponent } from './User/profile/profile.component';
 
 const routes: Routes = [
   { path: "Login", component: LoginComponent },
@@ -17,6 +20,7 @@ const routes: Routes = [
   { path: "Categories", component: CategoriesComponent },
   { path: "products/:id", component: ProductsComponent },
   { path: "PID/:id", component: ProductdetailsComponent },
+  { path: 'profile', component: ProfileComponent },
 
   {
     path: 'dashboard', component: DashboardComponent, children: [
@@ -24,6 +28,9 @@ const routes: Routes = [
       { path: 'getProdacts', component: GetProductsComponent },
       { path: 'addCategory', component: AddcatgoriyComponent },
       { path: 'addProduct', component: AddProductComponent },
+      { path: `editCategory/:id`, component: EditcategoryComponent },
+      { path: `editProduct/:id`, component: EditproductComponent },
+      
       
       { path: '', redirectTo: '/dashboard/getCategories', pathMatch: 'full' } // Default route
     ]
